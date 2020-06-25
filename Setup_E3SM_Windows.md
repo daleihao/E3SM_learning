@@ -11,8 +11,8 @@
     rm apt-cyg
 
 ## 3. Install necessary packages via apt-cyg
-    gcc cmake netcdf perl-XML-LibXML gfortune via apt-cyg
-    mpich: http://people.cs.uchicago.edu/~asiegel/courses/cspp51085/quick-ref/mpich-install.txt (**new version mpich-3.3.2.tar.gz**)
+    gcc cmake netcdf perl-XML-LibXML gcc-fortune via apt-cyg
+    mpich: http://people.cs.uchicago.edu/~asiegel/courses/cspp51085/quick-ref/mpich-install.txt (new version mpich-3.3.2.tar.gz)
     gmake:  Use make    % cd /bin
                         % ln -s make gmake
  
