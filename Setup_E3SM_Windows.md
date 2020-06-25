@@ -11,8 +11,10 @@
     rm apt-cyg
 
 ## 3. Install necessary packages via apt-cyg
-    gcc cmake netcdf via apt-cyg
+    gcc cmake netcdf perl-XML-LibXML gfortune via apt-cyg
     mpich: http://people.cs.uchicago.edu/~asiegel/courses/cspp51085/quick-ref/mpich-install.txt
+    gmake:  Use make    % cd /bin
+                        % ln -s make gmake
  
 ## 4. Clone E3SM code from github
 
