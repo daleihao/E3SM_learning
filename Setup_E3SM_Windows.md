@@ -5,7 +5,7 @@
     including some packages (git, wget, c++, c++g++, etc.)
     
 ## 2. Install Package Management Tool: apt-cyg
-    link: https://www.ccammack.com/posts/install-cygwin-and-apt-cyg/
+    link: https://www.ccammack.com/posts/install-cygwin-and-apt-cyg/   https://github.com/transcode-open/apt-cyg
     wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg
     install apt-cyg /bin
     rm apt-cyg
