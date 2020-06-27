@@ -29,3 +29,5 @@ essential
 netcdf libxml-libxml-perl
 
 sudo ln -s /usr/bin/make /usr/bin/gmake
+
+cmake
