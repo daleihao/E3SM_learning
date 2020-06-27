@@ -26,4 +26,4 @@ sudo apt install libxml2-utils
 
 essential
 
-netcdf
+netcdf libxml-libxml-perl
