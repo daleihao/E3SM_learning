@@ -31,3 +31,16 @@ netcdf libxml-libxml-perl
 sudo ln -s /usr/bin/make /usr/bin/gmake
 
 cmake
+
+hdf5
+
+https://www.wbhatti.org/notes/hdf5-with-cpp-support-debian.html
+
+net-cdf-c
+
+sudo ./configure --prefix=$ID/netcdf \
+	--enable-shared --enable-static \
+	--enable-netcdf-4 --disable-dap \
+	CPPFLAGS="-I$ID/hdf5/include -I$ID/zlib/include" \
+	LDFLAGS="-L$ID/hdf5/lib -Wl,-rpath=$ID/hdf5/lib \
+	-L$ID/zlib/lib -Wl,-rpath=$ID/zlib/lib"
