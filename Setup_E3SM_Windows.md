@@ -19,3 +19,11 @@
 ## 4. Clone E3SM code from github
 
 ## 5. Test Case
+
+
+
+sudo apt install libxml2-utils
+
+essential
+
+netcdf
