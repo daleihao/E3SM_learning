@@ -53,5 +53,15 @@ sudo ./configure --prefix=$ID/netcdf \
 	
 	sudo yum group install "Development Tools": gcc g++ make
 	sudo yum install cmake
+	cd /usr/local
+	sudo mkdir mpich
+	cd mpich
 	sudo wget http://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz
-	gunzip -c mpich-3.2.2.tar.gz | tar xf -
+	sudo tar -xf mpich-3.2.2.tar.gz 
+	sudo ./configure -prefix=/usr/local/mpich |& tee c.txt
+	sudo make 2>&1 | tee m.txt
+	sudo make install 2>&1 | tee mi.txt
+	
+	sudo yum install "perl(XML::LibXML)"
+	
+	usr\local\mpich\bin
