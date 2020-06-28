@@ -1,4 +1,6 @@
 
+
+never try it in Windows or Cygwin
 # Setup E3SM in Cygwin (Windows 10)
 
 ## 1. Install Cygwin
@@ -44,3 +46,12 @@ sudo ./configure --prefix=$ID/netcdf \
 	CPPFLAGS="-I$ID/hdf5/include -I$ID/zlib/include" \
 	LDFLAGS="-L$ID/hdf5/lib -Wl,-rpath=$ID/hdf5/lib \
 	-L$ID/zlib/lib -Wl,-rpath=$ID/zlib/lib"
+	
+	
+	
+	Centos 7
+	
+	sudo yum group install "Development Tools": gcc g++ make
+	sudo yum install cmake
+	sudo wget http://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz
+	gunzip -c mpich-3.2.2.tar.gz | tar xf -
