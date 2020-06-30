@@ -156,3 +156,8 @@ make check
 make install
 	
 	
+	https://modules.readthedocs.io/en/latest/INSTALL.html
+	install environmental modules:
+	sudo yum install tcl
+	sudo yum install tcl-devel
+	
