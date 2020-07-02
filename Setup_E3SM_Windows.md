@@ -3,15 +3,65 @@
 	refer to https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 ## 2. Install Packages with yum
+
+	export MainDir=/usr/bin
 1. gcc:
 
 	sudo yum group install "Development Tools"
 2. cmake:
 
 	sudo yum install cmake
+
+3. mpich
 	
-
-
+	 sudo wget http://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz
+	 
+	 sudo tar -zxvf mpich-3.3.2.tar.gz
+	 
+	 cd mpich-3.3.2
+	 
+	 sudo ./configure --prefix=$MainDir
+	 
+	 sudo make
+	 
+	 sudo make install
+	 
+4. zlib
+  	cd /usr/local
+	
+	sudo wget https://zlib.net/fossils/zlib-1.2.11.tar.gz
+	
+	sudo tar -zxvf zlib-1.2.11.tar.gz
+	
+	cd zlib-1.2.11
+	
+	sudo ./configure --prefix=${MainDir}/zlib
+	
+	sudo make
+	
+	sudo make install
+	
+5. hdf5
+	export CC=mpicc
+	export CXX=mpicxx
+	export FC=mpif90
+	export F77=mpif90
+	
+  	cd /usr/local
+	
+	sudo wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.20/src/hdf5-1.8.20.tar.gz
+	
+	sudo tar -zxvf hdf5-1.8.20.tar.gz
+	
+	cd hdf5-1.8.20
+	
+	sudo ./configure --prefix=${MainDir}/hdf5  --with-lib=${MainDir}/zlib --enable-fortran --enable-fortran2003 --enable-parallel --with-pic
+	
+	sudo make
+	
+	sudo make install
+	
+	
 
 
 
