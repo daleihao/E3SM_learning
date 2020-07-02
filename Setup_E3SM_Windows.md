@@ -1,5 +1,5 @@
 # Setup E3SM in Centos-7 of Win-10
-## Install Centos-7 on the Windows Subversion System for Linux
+##1. Install Centos-7 on the Windows Subversion System for Linux
 
 never try it in Windows or Cygwin
 # Setup E3SM in Cygwin (Windows 10)
