@@ -8,12 +8,20 @@
 1. gcc:
 
 	sudo yum group install "Development Tools"
+	
+	 sudo wget https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.gz
+	 sudo tar -zxvf gcc-8.3.0.tar.gz
+	 ./contrib/download_prerequisites
+	 sudo ./configure --enable-languages=c,c++,fortran --disable-multilib
+	 sudo make
+	 sudo make install
 2. cmake:
 
 	sudo yum install cmake
 
 3. mpich
-	
+	 cd /usr/local
+	 
 	 sudo wget http://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz
 	 
 	 sudo tar -zxvf mpich-3.3.2.tar.gz
@@ -31,6 +39,7 @@
   	cd /usr/local
 	
 	sudo wget https://zlib.net/fossils/zlib-1.2.11.tar.gz
+	
 	
 	sudo tar -zxvf zlib-1.2.11.tar.gz
 	
@@ -57,7 +66,7 @@
 	
 	cd hdf5-1.8.20
 	
-	sudo ./configure --prefix=${MainDir}/hdf5  --with-lib=${MainDir}/zlib --enable-fortran --enable-fortran2003 --enable-parallel --with-pic
+	sudo ./configure --prefix=${MainDir}/hdf5  --with-lib=${MainDir}/zlib --enable-fortran --enable-fortran2003  --with-pic
 	
 	sudo make
 	
@@ -69,9 +78,13 @@
 	sudo wget https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz
 	sudo tar -zxvf v4.6.2.tar.gz
 	cd netcdf-c-4.6.2
-	 CPPFLAGS="-I/usr/bin/zlib/include -I/usr/bin/hdf5/include"
-	 LDFLAGS="-L/usr/bin/zlib/lib -L/usr/bin/hdf5/lib"
-	 LD_LIBRARY_PATH="/usr/bin/hdf5/lib /usr/bin/zlib/lib"
+	 CPPFLAGS="-I/usr/bin/zlib/include
+	 -I/usr/bin/hdf5/include"
+	 CFLAGS="-I/usr/bin/zlib/include
+	 -I/usr/bin/hdf5/include"
+	 LDFLAGS="-L/usr/bin/zlib/lib
+	 -L/usr/bin/hdf5/lib"
+	 LD_LIBRARY_PATH="/usr/bin/hdf5/lib:/usr/bin/zlib/lib"
 	sudo ./configure --prefix=${MainDir}/netcdf --disable-shared  --disable-dap
 	
 	
