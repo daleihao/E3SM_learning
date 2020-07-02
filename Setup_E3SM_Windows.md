@@ -2,6 +2,13 @@
 ## 1. Install Centos-7 on the Windows Subversion System for Linux
 	refer to https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
+## 2. Install Packages with yum
+1. gcc
+	sudo yum group install "Development Tools"
+2. cmake
+	sudo yum install cmake
+	
+
 
 
 
