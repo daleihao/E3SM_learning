@@ -3,9 +3,11 @@
 	refer to https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 ## 2. Install Packages with yum
-1. gcc
+1. gcc:
+
 	sudo yum group install "Development Tools"
-2. cmake
+2. cmake:
+
 	sudo yum install cmake
 	
 
