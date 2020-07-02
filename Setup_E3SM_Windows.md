@@ -2,8 +2,11 @@
 ## 1. Install Centos-7 on the Windows Subversion System for Linux
 	refer to https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
-never try it in Windows or Cygwin
-# Setup E3SM in Cygwin (Windows 10)
+
+
+
+
+# Install packages in Cygwin (Windows 10)
 
 ## 1. Install Cygwin
     including some packages (git, wget, c++, c++g++, etc.)
