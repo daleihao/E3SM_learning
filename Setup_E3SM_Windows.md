@@ -78,13 +78,13 @@
 	sudo wget https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz
 	sudo tar -zxvf v4.6.2.tar.gz
 	cd netcdf-c-4.6.2
-	 CPPFLAGS="-I/usr/bin/zlib/include
-	 -I/usr/bin/hdf5/include"
-	 CFLAGS="-I/usr/bin/zlib/include
-	 -I/usr/bin/hdf5/include"
-	 LDFLAGS="-L/usr/bin/zlib/lib
-	 -L/usr/bin/hdf5/lib"
-	 LD_LIBRARY_PATH="/usr/bin/hdf5/lib:/usr/bin/zlib/lib"
+	 CPPFLAGS="-I/zlib/include
+	 -I/hdf5/include"
+	 CFLAGS="-I/zlib/include
+	 -I/hdf5/include"
+	 LDFLAGS="-L/zlib/lib
+	 -L/hdf5/lib"
+	 LD_LIBRARY_PATH="/hdf5/lib:/zlib/lib:$LD_LIBRARY_PATH"
 	sudo ./configure --prefix=${MainDir}/netcdf --disable-shared  --disable-dap
 	
 	
