@@ -81,13 +81,31 @@ export MainDir=/home/dalei
 	sudo wget https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz
 	sudo tar -zxvf v4.6.2.tar.gz
 	cd netcdf-c-4.6.2
-	 CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
-	 CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
-	 LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib -lhdf5 -lhdf5_hl -lz"
-	 LD_LIBRARY_PATH="/home/dalei/hdf5/lib:/home/dalei/zlib/lib:$LD_LIBRARY_PATH "
-	./configure --prefix=${MainDir}/netcdf --disable-shared  --disable-dap
+	 export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib -lhdf5 -lhdf5_hl -lz"
+	  export LD_LIBRARY_PATH="/home/dalei/hdf5/lib:/home/dalei/zlib/lib:$LD_LIBRARY_PATH"
+	./configure --prefix=/home/dalei/netcdf --disable-shared  --disable-dap
 	
+	make 
 	
+	make install
+	
+7. netcdf-fortran 
+	cd /home/dalei/install2
+wget https://github.com/Unidata/netcdf-fortran/archive/v4.4.3.tar.gz
+
+tar xzvf v4.4.3.tar.gz
+cd netcdf-fortran-4.4.3
+ export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include -I/home/dalei/netcdf/include"
+ export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include  -I/home/dalei/netcdf/include"
+ export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib  -I/home/dalei/netcdf/lib -lhdf5 -lhdf5_hl -lz"
+
+./configure --prefix=/home/dalei/netcdf --disable-shared
+make
+make check
+make install
+		
 
 
 # Install packages in Cygwin (Windows 10)
