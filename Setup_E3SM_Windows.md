@@ -15,6 +15,8 @@
 	 sudo ./configure --enable-languages=c,c++,fortran --disable-multilib
 	 sudo make
 	 sudo make install
+	 scl enable devtoolset-6 bash
+	 scl enable devtoolset-6 bash
 2. cmake:
 
 	sudo yum install cmake
