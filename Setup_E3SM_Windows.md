@@ -16,7 +16,7 @@
 	 sudo make
 	 sudo make install
 	 scl enable devtoolset-6 bash
-	 scl enable devtoolset-6 bash
+	 scl enable devtoolset-8 bash
 2. cmake:
 
 	sudo yum install cmake
@@ -81,11 +81,11 @@ export MainDir=/home/dalei
 	sudo wget https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz
 	sudo tar -zxvf v4.6.2.tar.gz
 	cd netcdf-c-4.6.2
-	 CPPFLAGS="-I/zlib/include -I/hdf5/include"
-	 CFLAGS="-I/zlib/include -I/hdf5/include"
-	 LDFLAGS="-L/zlib/lib -L/hdf5/lib -lhdf5 -lhdf5_hl -lz"
-	 LD_LIBRARY_PATH="/hdf5/lib:/zlib/lib:$LD_LIBRARY_PATH "
-	sudo ./configure --prefix=${MainDir}/netcdf --disable-shared  --disable-dap
+	 CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib -lhdf5 -lhdf5_hl -lz"
+	 LD_LIBRARY_PATH="/home/dalei/hdf5/lib:/home/dalei/zlib/lib:$LD_LIBRARY_PATH "
+	./configure --prefix=${MainDir}/netcdf --disable-shared  --disable-dap
 	
 	
 
