@@ -35,6 +35,7 @@
 	 sudo make install
 	 
 4. zlib
+export MainDir=/home/dalei
 
   	cd /home/dalei
 	
@@ -58,19 +59,19 @@
 	export FC=/usr/bin/bin/mpif90
 	export F77=/usr/bin/bin/mpif77
 	
-  	cd /usr/local
+  	cd ~/install
 	
-	sudo wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.20/src/hdf5-1.8.20.tar.gz
+	wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.20/src/hdf5-1.8.20.tar.gz
 	
-	sudo tar -zxvf hdf5-1.8.20.tar.gz
+	tar -zxvf hdf5-1.8.20.tar.gz
 	
 	cd hdf5-1.8.20
 	
-	sudo ./configure --prefix=/hdf5  --with-zlib=/zlib --enable-fortran --enable-fortran2003  --with-pic
+	./configure --prefix=${MainDir}/hdf5  --with-zlib=${MainDir}/zlib --enable-fortran --enable-fortran2003  --with-pic
 	
-	sudo make
+	make
 	
-	sudo make install
+	make install
 	
 6. netcdf-c
 	
