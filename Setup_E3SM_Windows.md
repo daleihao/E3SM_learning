@@ -91,6 +91,12 @@ export MainDir=/home/dalei
 	
 	make install
 	
+	
+	tar zxvf cmake-3.*
+cd cmake-3.*
+./bootstrap --prefix=/home/dalei/cmake
+make -j$(nproc)
+make install
 7. netcdf-fortran 
 	cd /home/dalei/install2
 wget https://github.com/Unidata/netcdf-fortran/archive/v4.4.3.tar.gz
@@ -99,13 +105,50 @@ tar xzvf v4.4.3.tar.gz
 cd netcdf-fortran-4.4.3
  export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include -I/home/dalei/netcdf/include"
  export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include  -I/home/dalei/netcdf/include"
- export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib  -I/home/dalei/netcdf/lib -lhdf5 -lhdf5_hl -lz"
+ export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib  -L/home/dalei/netcdf/lib -lhdf5 -lhdf5_hl -lz"
 
 ./configure --prefix=/home/dalei/netcdf --disable-shared
 make
 make check
 make install
 		
+sudo yum install "perl(XML::LibXML)"
+
+
+## 3.  setup E3SM
+  cd ~/model1/e3sm_trial/cime/config/
+chmod -R 700 .
+cd ../script
+ export RES=1x1_brazil
+ export COMPSET=ICLM45
+ export COMPILER=gnu
+ export MACH=WE39911
+ export CASE_NAME=test9
+ cd ~/model1/e3sm_trial/cime/scripts
+ ./create_newcase \
+ -case ${CASE_NAME} \
+ -compset ${COMPSET} \
+ -res ${RES} \
+ -compiler ${COMPILER} \
+ -mach ${MACH}
+ cd $CASE_NAME
+ ./xmlchange -file env_build.xml -id MPILIB -val mpich
+ ./xmlchange -file env_build.xml -id OS -val Darwin
+ ./xmlchange -file env_build.xml -id CESMSCRATCHROOT -val ${PWD}
+ ./xmlchange -file env_build.xml -id EXEROOT -val ${PWD}/bld
+
+./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_END -val 2000
+ ./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_START -val 2000
+ ./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_ALIGN -val 1
+ ./xmlchange -file env_run.xml -id RUNDIR -val ${PWD}/run
+
+./xmlchange PIO_VERSION=1
+ ./case.setup
+
+./case.build
+
+
+
 
 
 # Install packages in Cygwin (Windows 10)
