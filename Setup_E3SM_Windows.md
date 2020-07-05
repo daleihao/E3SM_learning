@@ -116,15 +116,16 @@ sudo yum install "perl(XML::LibXML)"
 
 
 ## 3.  setup E3SM
-  cd ~/model1/e3sm_trial/cime/config/
+ scl enable devtoolset-8 bash
+cd ~/model1/e3sm/cime/config/
 chmod -R 700 .
 cd ../script
  export RES=1x1_brazil
  export COMPSET=ICLM45
  export COMPILER=gnu
  export MACH=WE39911
- export CASE_NAME=test9
- cd ~/model1/e3sm_trial/cime/scripts
+ export CASE_NAME=test16
+ cd ~/model1/e3sm/cime/scripts
  ./create_newcase \
  -case ${CASE_NAME} \
  -compset ${COMPSET} \
@@ -132,20 +133,13 @@ cd ../script
  -compiler ${COMPILER} \
  -mach ${MACH}
  cd $CASE_NAME
- ./xmlchange -file env_build.xml -id MPILIB -val mpich
- ./xmlchange -file env_build.xml -id OS -val Darwin
- ./xmlchange -file env_build.xml -id CESMSCRATCHROOT -val ${PWD}
- ./xmlchange -file env_build.xml -id EXEROOT -val ${PWD}/bld
-
-./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_END -val 2000
- ./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_START -val 2000
- ./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_ALIGN -val 1
- ./xmlchange -file env_run.xml -id RUNDIR -val ${PWD}/run
-
+ 
+./xmlchange STOP_N=1,STOP_OPTION=nyears
 ./xmlchange PIO_VERSION=1
  ./case.setup
 
 ./case.build
+
 
 
 
