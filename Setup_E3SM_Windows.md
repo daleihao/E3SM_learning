@@ -111,9 +111,13 @@ cd netcdf-fortran-4.4.3
 make
 make check
 make install
-		
+
+8. LibXML
 sudo yum install "perl(XML::LibXML)"
 
+9. 
+yum install atlas atlas-devel lapack-devel blas-devel
+-llapack -lblas
 
 ## 3.  setup E3SM
  scl enable devtoolset-8 bash
