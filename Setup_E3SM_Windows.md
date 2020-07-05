@@ -10,12 +10,19 @@
 	sudo yum group install "Development Tools"
 	
 	 sudo wget https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.gz
+	 
 	 sudo tar -zxvf gcc-8.3.0.tar.gz
+	 
 	 ./contrib/download_prerequisites
+	 
 	 sudo ./configure --enable-languages=c,c++,fortran --disable-multilib
+	 
 	 sudo make
+	 
 	 sudo make install
+	 
 	 scl enable devtoolset-6 bash
+	 
 	 scl enable devtoolset-8 bash
 2. cmake:
 
@@ -57,8 +64,11 @@ export MainDir=/home/dalei
 5. hdf5
 
 	export CC=/usr/bin/bin/mpicc
+	
 	export CXX=/usr/bin/bin/mpicxx
+	
 	export FC=/usr/bin/bin/mpif90
+	
 	export F77=/usr/bin/bin/mpif77
 	
   	cd ~/install
@@ -78,13 +88,21 @@ export MainDir=/home/dalei
 6. netcdf-c
 	
 	cd /usr/local
+	
 	sudo wget https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz
+	
 	sudo tar -zxvf v4.6.2.tar.gz
+	
 	cd netcdf-c-4.6.2
+	
 	 export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 
 	 export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 
 	 export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib -lhdf5 -lhdf5_hl -lz"
+	 
 	  export LD_LIBRARY_PATH="/home/dalei/hdf5/lib:/home/dalei/zlib/lib:$LD_LIBRARY_PATH"
+	  
 	./configure --prefix=/home/dalei/netcdf --disable-shared  --disable-dap
 	
 	make 
@@ -94,9 +112,13 @@ export MainDir=/home/dalei
 	
 	tar zxvf cmake-3.*
 cd cmake-3.*
+
 ./bootstrap --prefix=/home/dalei/cmake
+
 make -j$(nproc)
+
 make install
+
 7. netcdf-fortran 
 	cd /home/dalei/install2
 wget https://github.com/Unidata/netcdf-fortran/archive/v4.4.3.tar.gz
@@ -104,42 +126,65 @@ wget https://github.com/Unidata/netcdf-fortran/archive/v4.4.3.tar.gz
 tar xzvf v4.4.3.tar.gz
 cd netcdf-fortran-4.4.3
  export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include -I/home/dalei/netcdf/include"
+ 
  export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include  -I/home/dalei/netcdf/include"
+ 
  export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib  -L/home/dalei/netcdf/lib -lhdf5 -lhdf5_hl -lz"
 
 ./configure --prefix=/home/dalei/netcdf --disable-shared
+
 make
+
 make check
+
 make install
 
 8. LibXML
 sudo yum install "perl(XML::LibXML)"
 
-9. 
+9. BLAS & LAPACK
 yum install atlas atlas-devel lapack-devel blas-devel
 -llapack -lblas
 
 ## 3.  setup E3SM
  scl enable devtoolset-8 bash
+ 
 cd ~/model1/e3sm/cime/config/
+
 chmod -R 700 .
+
 cd ../script
+
  export RES=1x1_brazil
+ 
  export COMPSET=ICLM45
+ 
  export COMPILER=gnu
+ 
  export MACH=WE39911
- export CASE_NAME=test16
+ 
+ export CASE_NAME=test
+ 
  cd ~/model1/e3sm/cime/scripts
+ 
  ./create_newcase \
+ 
  -case ${CASE_NAME} \
+ 
  -compset ${COMPSET} \
+ 
  -res ${RES} \
+ 
  -compiler ${COMPILER} \
+ 
  -mach ${MACH}
+ 
  cd $CASE_NAME
  
 ./xmlchange STOP_N=1,STOP_OPTION=nyears
+
 ./xmlchange PIO_VERSION=1
+
  ./case.setup
 
 ./case.build
