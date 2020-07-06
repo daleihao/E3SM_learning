@@ -25,8 +25,18 @@
 	 
 	 scl enable devtoolset-8 bash
 2. cmake:
+		wget https://cmake.org/files/v3.12/cmake-3.12.3.tar.gz
+		tar zxvf cmake-3.*
+		cd cmake-3.*
 
-	sudo yum install cmake
+		./bootstrap --prefix=/home/dalei/cmake
+
+		make -j$(nproc)
+
+		make install
+		
+		add cmake-path to ./bash_profile PATH=/home/dalei/cmake/bin:$PATH:$HOME/.local/bin:$HOME/bin
+
 
 3. mpich
 	 cd /usr/local
@@ -42,6 +52,8 @@
 	 sudo make
 	 
 	 sudo make install
+	 
+	 https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz
 	 
 4. zlib
 export MainDir=/home/dalei
@@ -85,53 +97,56 @@ export MainDir=/home/dalei
 	
 	make install
 	
+	6. pnetcdf(optional)
+	cd ~
+	mkdir netcdf-install
+	cd netcdf-install
+	wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz
+	tar -zxvf pnetcdf-1.12.1.tar.gz
+	cd pnetcdf-1.12.1
+	./configure --prefix=/home/dalei/pnetcdf
+	make
+	make  install
 6. netcdf-c
 	
-	cd /usr/local
+	cd ~/netcdf-install
 	
-	sudo wget https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz
+	wget https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz
 	
-	sudo tar -zxvf v4.6.2.tar.gz
+	tar -zxvf v4.6.2.tar.gz
 	
 	cd netcdf-c-4.6.2
 	
-	 export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include -I/home/dalei/pnetcdf/include"
 	 
-	 export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include"
+	 export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include  -I/home/dalei/pnetcdf/include"
 	 
-	 export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib -lhdf5 -lhdf5_hl -lz"
+	 export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib -lhdf5 -lhdf5_hl -lz  -L/home/dalei/pnetcdf/lib"
 	 
 	  export LD_LIBRARY_PATH="/home/dalei/hdf5/lib:/home/dalei/zlib/lib:$LD_LIBRARY_PATH"
 	  
-	./configure --prefix=/home/dalei/netcdf --disable-shared  --disable-dap
+	./configure --prefix=/home/dalei/netcdf_all --disable-shared  --disable-dap --enable-pnetcdf
 	
 	make 
 	
 	make install
 	
 	
-	tar zxvf cmake-3.*
-cd cmake-3.*
 
-./bootstrap --prefix=/home/dalei/cmake
-
-make -j$(nproc)
-
-make install
 
 7. netcdf-fortran 
-	cd /home/dalei/install2
+	cd ~/netcdf-install
 wget https://github.com/Unidata/netcdf-fortran/archive/v4.4.3.tar.gz
 
 tar xzvf v4.4.3.tar.gz
 cd netcdf-fortran-4.4.3
- export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include -I/home/dalei/netcdf/include"
+ export CPPFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include -I/home/dalei/netcdf_all/include  -I/home/dalei/pnetcdf/include"
  
- export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include  -I/home/dalei/netcdf/include"
+ export  CFLAGS="-I/home/dalei/zlib/include -I/home/dalei/hdf5/include  -I/home/dalei/netcdf_all/include  -I/home/dalei/pnetcdf/include"
  
- export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib  -L/home/dalei/netcdf/lib -lhdf5 -lhdf5_hl -lz"
+ export  LDFLAGS="-L/home/dalei/zlib/lib -L/home/dalei/hdf5/lib  -L/home/dalei/netcdf_all/lib -lhdf5 -lhdf5_hl -lz   -L/home/dalei/pnetcdf/lib"
 
-./configure --prefix=/home/dalei/netcdf --disable-shared
+./configure --prefix=/home/dalei/netcdf_all --disable-shared  --enable-pnetcdf
 
 make
 
