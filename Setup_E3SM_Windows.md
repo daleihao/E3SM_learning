@@ -178,7 +178,7 @@ cd ../script
  
  export MACH=WE39911
  
- export CASE_NAME=test
+ export CASE_NAME=test41
  
  cd ~/model1/e3sm/cime/scripts
  
