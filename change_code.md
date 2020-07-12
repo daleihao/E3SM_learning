@@ -3,4 +3,4 @@
 add 3D-RT module
 
 # Change namelist
-clm user_nl_clm
+clm namelist user_nl_clm
