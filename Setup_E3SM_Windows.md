@@ -165,7 +165,7 @@ yum install atlas atlas-devel lapack-devel blas-devel
  scl enable devtoolset-8 bash
  
 cd ~/model1/e3sm/cime/config/
-
+  export LD_LIBRARY_PATH="/home/dalei/hdf5/lib:/home/dalei/zlib/lib::/home/dalei/netcdf/lib:$LD_LIBRARY_PATH"
 chmod -R 700 .
 
 cd ../script
@@ -178,20 +178,15 @@ cd ../script
  
  export MACH=WE39911
  
- export CASE_NAME=test41
+ export CASE_NAME=test42
  
  cd ~/model1/e3sm/cime/scripts
  
  ./create_newcase \
- 
  -case ${CASE_NAME} \
- 
  -compset ${COMPSET} \
- 
  -res ${RES} \
- 
  -compiler ${COMPILER} \
- 
  -mach ${MACH}
  
  cd $CASE_NAME
