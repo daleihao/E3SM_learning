@@ -198,7 +198,7 @@ echo success
 
 
 # different resolutions 0.25
-export RES=f02_g16
+export RES=f02_f02
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
@@ -215,6 +215,7 @@ cd ${CASE_NAME}
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
 f3dtopo = ''
+fsurdat = '/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata/surfdata_0.23x0.31_simyr2000_c100406.nc'
 EOF
 
 #f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
@@ -262,7 +263,7 @@ echo success
 
 
 # 0.5
-export RES=f05_g16
+export RES=r05_r05
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
@@ -270,7 +271,7 @@ export CASE_NAME=new_notop_monthly_0.5.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
-./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project m3520
 
 cd ${CASE_NAME}
 
@@ -304,7 +305,7 @@ export CASE_NAME=new_top_monthly_0.5.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
-./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project m3520
 
 cd ${CASE_NAME}
 
