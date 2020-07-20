@@ -198,7 +198,7 @@ echo success
 
 
 # different resolutions 0.25
-export RES=f02_g16
+export RES=f02_f02
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
