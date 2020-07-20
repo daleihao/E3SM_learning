@@ -195,3 +195,131 @@ EOF
 ./case.submit
 
 echo success
+
+
+# different resolutions 0.25
+export RES=f02_f02
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=new_notop_monthly_0.25.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+./xmlchange STOP_N=1,STOP_OPTION=nyears
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .false.
+f3dtopo = ''
+EOF
+
+#f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+
+./case.setup
+
+./case.build
+
+./case.submit
+
+
+
+
+
+
+
+
+export RES=f02_f02
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=new_top_monthly_0.25.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+./xmlchange STOP_N=1,STOP_OPTION=nyears
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .true.
+f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+EOF
+
+
+./case.setup
+
+./case.build
+
+./case.submit
+
+echo success
+
+
+# 0.5
+export RES=f05_f05
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=new_notop_monthly_0.5.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+./xmlchange STOP_N=1,STOP_OPTION=nyears
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .false.
+f3dtopo = ''
+EOF
+
+#f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+
+./case.setup
+
+./case.build
+
+./case.submit
+
+
+
+
+
+
+
+
+export RES=f05_f05
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=new_top_monthly_0.5.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+./xmlchange STOP_N=1,STOP_OPTION=nyears
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .true.
+f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+EOF
+
+
+./case.setup
+
+./case.build
+
+./case.submit
+
+echo success
