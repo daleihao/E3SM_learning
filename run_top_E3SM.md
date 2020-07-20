@@ -281,7 +281,7 @@ rad_3d_topo = .false.
 f3dtopo = ''
 EOF
 
-#f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+#f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.47x0.63_c150322.nc'
 
 ./case.setup
 
@@ -312,7 +312,7 @@ cd ${CASE_NAME}
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
-f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.47x0.63_c150322.nc'
 EOF
 
 
