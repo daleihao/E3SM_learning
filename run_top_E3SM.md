@@ -198,7 +198,7 @@ echo success
 
 
 # different resolutions 0.25
-export RES=f02_f02
+export RES=f02_g16
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
@@ -232,7 +232,7 @@ EOF
 
 
 
-export RES=f02_f02
+export RES=f03_f03
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
@@ -262,7 +262,7 @@ echo success
 
 
 # 0.5
-export RES=f05_f05
+export RES=f05_g16
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
