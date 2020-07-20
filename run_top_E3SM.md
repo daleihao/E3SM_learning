@@ -198,13 +198,13 @@ echo success
 
 
 # different resolutions 0.25
-export RES=f02_f02
+export RES=f02_g16
 export COMPSET=ICLM45
 export COMPILER=intel
-export MACH=compy
+export MACH=cori-knl
 export CASE_NAME=new_notop_monthly_0.25.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm_top/cime/scripts
+cd ~/model/e3sm_top/cime/scripts
 
 ./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 
@@ -217,7 +217,7 @@ rad_3d_topo = .false.
 f3dtopo = ''
 EOF
 
-#f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+#f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
 
 ./case.setup
 
@@ -235,10 +235,10 @@ EOF
 export RES=f02_f02
 export COMPSET=ICLM45
 export COMPILER=intel
-export MACH=compy
+export MACH=cori-knl
 export CASE_NAME=new_top_monthly_0.25.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm_top/cime/scripts
+cd ~/model/e3sm_top/cime/scripts
 
 ./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 
@@ -248,7 +248,7 @@ cd ${CASE_NAME}
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
-f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
 EOF
 
 
@@ -265,10 +265,10 @@ echo success
 export RES=f05_f05
 export COMPSET=ICLM45
 export COMPILER=intel
-export MACH=compy
+export MACH=cori-knl
 export CASE_NAME=new_notop_monthly_0.5.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm_top/cime/scripts
+cd ~/model/e3sm_top/cime/scripts
 
 ./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 
@@ -281,7 +281,7 @@ rad_3d_topo = .false.
 f3dtopo = ''
 EOF
 
-#f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.47x0.63_c150322.nc'
+#f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.47x0.63_c150322.nc'
 
 ./case.setup
 
@@ -299,10 +299,10 @@ EOF
 export RES=f05_f05
 export COMPSET=ICLM45
 export COMPILER=intel
-export MACH=compy
+export MACH=cori-knl
 export CASE_NAME=new_top_monthly_0.5.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm_top/cime/scripts
+cd ~/model/e3sm_top/cime/scripts
 
 ./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 
@@ -312,7 +312,7 @@ cd ${CASE_NAME}
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
-f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.47x0.63_c150322.nc'
+f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.47x0.63_c150322.nc'
 EOF
 
 
