@@ -233,11 +233,11 @@ EOF
 
 
 
-export RES=f03_f03
+export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=new_top_monthly_0.25.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=new_top_monthly_0.125.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -245,11 +245,11 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange STOP_N=1,STOP_OPTION=nyears
+./xmlchange STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
-f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.125x0.125.nc'
 EOF
 
 
@@ -275,7 +275,8 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange STOP_N=1,STOP_OPTION=nyears
+./xmlchange STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="3:00:00"
+
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -297,7 +298,7 @@ EOF
 
 
 
-export RES=f05_f05
+export RES=r05_r05
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
@@ -309,11 +310,11 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange STOP_N=1,STOP_OPTION=nyears
+./xmlchange STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
-f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.47x0.63_c150322.nc'
+f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.5x0.5.nc'
 EOF
 
 
