@@ -240,7 +240,7 @@ export CASE_NAME=new_top_monthly_0.125.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
-./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project m3520
 
 cd ${CASE_NAME}
 
