@@ -197,7 +197,7 @@ EOF
 echo success
 
 
-# different resolutions 0.25
+# different resolutions 0.125
 export RES=f02_f02
 export COMPSET=ICLM45
 export COMPILER=intel
@@ -249,6 +249,7 @@ cd ${CASE_NAME}
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
+fsurdat = '/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2000_c190730.nc'
 f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.125x0.125.nc'
 EOF
 
