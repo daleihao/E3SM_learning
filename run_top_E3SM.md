@@ -201,24 +201,24 @@ echo success
 export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
-export MACH=compy    #cori-knl
-export CASE_NAME=new_notop_monthly_0.125.${RES}.${COMPSET}.${COMPILER}
+export MACH=cori-knl    #cori-knl
+export CASE_NAME=new2_notop_monthly_0.125.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
-./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project m3520
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS_LND=128
-./xmlchange STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="1:00:00"
+./xmlchange NTASKS=512
+./xmlchange STOP_N=1,STOP_OPTION=ndays,JOB_WALLCLOCK_TIME="1:00:00"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
 f3dtopo = ''
-fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr1850_c190730.nc'
+fsurdat = '/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2000_c190730.nc'
 EOF
-#/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata/surfdata_0.23x0.31_simyr2000_c100406.nc'
+# fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr1850_c190730.nc'
 #f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
 
 ./case.setup
