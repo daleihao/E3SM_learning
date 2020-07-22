@@ -1,0 +1,12 @@
+# reference
+http://www.cesm.ucar.edu/models/ccsm4.0/clm/models/lnd/clm/doc/UsersGuide/x1327.html
+
+# remove all history fields
+hist_empty_htapes = .true.
+ hist_fincl1 = 'TG', 'TV', 'FSA'
+ 
+ 
+ # specify the output frequency
+Positive value means the output frequency is the number of model steps between output.
+Negative value means the output frequency is the absolute value in hours given (i.e -1 would mean an hour and -24 would mean a full day). Daily (-24) is the default value for all auxiliary files.
+Zero means the output frequency is monthly. This is the default for the primary history files.
