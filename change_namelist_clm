@@ -1,10 +1,12 @@
 # reference
 http://www.cesm.ucar.edu/models/ccsm4.0/clm/models/lnd/clm/doc/UsersGuide/x1327.html
 
+default value for dtime DTIME = 1800 second half-hourly
 # remove all history fields
 hist_empty_htapes = .true.
  hist_fincl1 = 'TG', 'TV', 'FSA'
- 
+  hist_fincl1 = 'COSZEN', 'DECL'
+ hist_fexcl1 = 'TG', 'TV', 'TSOI', 'H2OSOI'
  
  # specify the output frequency
 Positive value means the output frequency is the number of model steps between output.
