@@ -131,6 +131,83 @@ echo success
 
 
 
+# different resolutions 0.125
+export RES=r0125_r0125
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=cori-knl    #cori-knl
+export CASE_NAME=Halfhourly_notop.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/model/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project m3520
+
+cd ${CASE_NAME}
+
+./xmlchange NTASKS=1024
+./xmlchange STOP_N=1,STOP_OPTION=ndays,JOB_WALLCLOCK_TIME="12:00:00"
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .false.
+f3dtopo = ''
+fsurdat = '/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2000_c190730.nc'
+hist_empty_htapes = .true.
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_nhtfrq = 1
+hist_mfilt  = 48
+EOF
+# fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr1850_c190730.nc'
+#f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.23x0.31_c150322.nc'
+
+./case.setup
+
+./case.build
+
+./case.submit
+
+
+
+
+
+
+
+export RES=r0125_r0125
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=cori-knl
+export CASE_NAME=Halfhourly_top.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/model/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project m3520
+
+cd ${CASE_NAME}
+
+./xmlchange NTASKS=1024
+./xmlchange STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00"
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .true.
+fsurdat = '/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2000_c190730.nc'
+f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.125x0.125.nc'
+hist_empty_htapes = .true.
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_nhtfrq = 1
+hist_mfilt  = 48
+EOF
+
+
+./case.setup
+
+./case.build
+
+./case.submit
+
+echo success
+
+
+
+
 # Compy
 # half Hourly 1 degree
 ## notpo
