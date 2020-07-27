@@ -20,7 +20,7 @@ f3dtopo = ''
 hist_nhtfrq = 1
 hist_mfilt  = 48
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 EOF
 
 ./case.setup
@@ -48,7 +48,7 @@ cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
 f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.9x1.25_c150322.nc'
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 hist_nhtfrq = 1
 hist_mfilt  = 48
 EOF
@@ -70,7 +70,7 @@ export RES=r05_r05
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=Halfhourly_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly2_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -78,7 +78,7 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange  NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00"
+./xmlchange  NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="6:00:00"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -86,7 +86,7 @@ f3dtopo = ''
 hist_nhtfrq = 1
 hist_mfilt  = 48
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 EOF
 
 
@@ -101,7 +101,7 @@ export RES=r05_r05
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=Halfhourly_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly2_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -109,13 +109,13 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00"
+./xmlchange NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="6:00:00"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
 f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.5x0.5.nc'
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 hist_nhtfrq = 1
 hist_mfilt  = 48
 EOF
@@ -136,7 +136,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl    #cori-knl
-export CASE_NAME=Halfhourly_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly2_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -152,7 +152,7 @@ rad_3d_topo = .false.
 f3dtopo = ''
 fsurdat = '/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2000_c190730.nc'
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 hist_nhtfrq = 1
 hist_mfilt  = 48
 EOF
@@ -175,7 +175,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=Halfhourly_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly2_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -191,7 +191,7 @@ rad_3d_topo = .true.
 fsurdat = '/global/cfs/cdirs/e3sm/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2000_c190730.nc'
 f3dtopo = '/global/u2/d/daleihao/model/data/UCLA_3D_Topo_Data/topo_3d_0.125x0.125.nc'
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 hist_nhtfrq = 1
 hist_mfilt  = 48
 EOF
@@ -231,7 +231,7 @@ f3dtopo = ''
 hist_nhtfrq = 1
 hist_mfilt  = 48
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 EOF
 
 ./case.setup
@@ -259,7 +259,7 @@ cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
 f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.9x1.25_c150322.nc'
 hist_empty_htapes = .true.
-hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','SWup','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TSA','QSNOMELT','QRUNOFF','QOVER','SNOWLIQ','FSDSVD','FSDSVI','FSRVD','FSRVI'
 hist_nhtfrq = 1
 hist_mfilt  = 48
 EOF
