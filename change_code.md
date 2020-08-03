@@ -21,3 +21,6 @@ btw, you can control the restart frequency output by changing REST_Nand REST_OPT
 it is because the model did not run long enough to write a restart file.
 2:27
 resubmit the run with CONTINUE_RUN=.FALSE., but change REST_N and REST_OPTIONsuch that the model writes a restart file
+
+
+./xmlchange REST_N=1,REST_OPTION=nmonths,CONTINUE_RUN=FALSE,STOP_N=3,STOP_OPTION=nmonths,RESUBMIT=3
