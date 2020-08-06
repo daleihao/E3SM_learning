@@ -70,7 +70,7 @@ export RES=r05_r05
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=Halfhourly5_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly6_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -78,7 +78,7 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange  NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="6:00:00"
+./xmlchange  NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="6:00:00",RUN_STARTDATE="2000-01-01"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -101,7 +101,7 @@ export RES=r05_r05
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=Halfhourly5_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly6_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -109,7 +109,7 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="6:00:00"
+./xmlchange NTASKS=512,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="6:00:00",RUN_STARTDATE="2000-01-01"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
@@ -136,7 +136,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl    #cori-knl
-export CASE_NAME=Halfhourly5_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly6_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -145,7 +145,7 @@ cd ~/model/e3sm_top/cime/scripts
 cd ${CASE_NAME}
 
 ./xmlchange NTASKS=1024
-./xmlchange STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3
+./xmlchange STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3,RUN_STARTDATE="2000-01-01"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -175,7 +175,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=Halfhourly5_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly6_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -184,7 +184,7 @@ cd ~/model/e3sm_top/cime/scripts
 cd ${CASE_NAME}
 
 ./xmlchange NTASKS=1024
-./xmlchange STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3
+./xmlchange STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3,RUN_STARTDATE="2000-01-01"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
@@ -216,7 +216,7 @@ export RES=f09_f09
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=Halfhour3_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhour4_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
@@ -224,7 +224,7 @@ cd ~/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="3:00:00"
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="3:00:00",RUN_STARTDATE="2000-01-01"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -246,7 +246,7 @@ export RES=f09_f09
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=Halfhour3_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhour4_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
@@ -254,7 +254,7 @@ cd ~/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="3:00:00"
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="3:00:00",RUN_STARTDATE="2000-01-01"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
