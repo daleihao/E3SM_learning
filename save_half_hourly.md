@@ -136,7 +136,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl    #cori-knl
-export CASE_NAME=Halfhourly6_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly7_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -144,8 +144,8 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=1024
-./xmlchange STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3,RUN_STARTDATE="2000-01-01"
+./xmlchange NTASKS=2048
+./xmlchange RUN_STARTDATE="2000-01-01",STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -175,7 +175,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=cori-knl
-export CASE_NAME=Halfhourly6_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhourly7_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/model/e3sm_top/cime/scripts
 
@@ -183,8 +183,8 @@ cd ~/model/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=1024
-./xmlchange STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3,RUN_STARTDATE="2000-01-01"
+./xmlchange NTASKS=2048
+./xmlchange RUN_STARTDATE="2000-01-01",STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",REST_N=1,REST_OPTION=nmonths,RESUBMIT=3
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
