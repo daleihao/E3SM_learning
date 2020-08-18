@@ -73,11 +73,11 @@ echo success
 
 
   # r0125_r0125
-  export RES=r05_r05
+  export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=Halfhour5_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=Halfhour6_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
@@ -85,7 +85,7 @@ cd ~/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=128,STOP_N=3,STOP_OPTION=ndays,JOB_WALLCLOCK_TIME="0:30:00",RUN_STARTDATE="2000-01-01"
+./xmlchange NTASKS=1024,STOP_N=1,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="12:00:00",RUN_STARTDATE="2000-01-01"
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
