@@ -14,7 +14,7 @@ cd ~/e3sm_top/cime/scripts
 cd ${CASE_NAME}
 
 ./xmlchange NTASKS=128,STOP_N=10,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00",RUN_STARTDATE="2000-01-01",REST_N=1,REST_OPTION=nyears
-./xmlchange DATM_MODE="CLMGSWP3v1"
+./xmlchange DATM_MODE="CLMGSWP3v1",DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
 f3dtopo = ''
