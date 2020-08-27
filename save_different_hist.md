@@ -72,18 +72,19 @@ echo success
 # half Hourly 0.5 degree
 ## notpo
 export RES=r05_r05
-export COMPSET=ICLM45
+export COMPSET=ICRUCLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=Halfhour_daily_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=test5_Halfhour_daily_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
-./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+./create_newcase -compset ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 
 cd ${CASE_NAME}
 
 ./xmlchange NTASKS=512,STOP_N=10,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00",RUN_STARTDATE="2000-01-01",REST_N=1,REST_OPTION=nyears
+./xmlchange DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -103,7 +104,7 @@ EOF
 
 ## top
 export RES=r05_r05
-export COMPSET=ICLM45
+export COMPSET=ICRUCLM45
 export COMPILER=intel
 export MACH=compy
 export CASE_NAME=Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
@@ -146,7 +147,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=2000_Halfhour_daily_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=2000_1_Halfhour_daily_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
@@ -154,7 +155,7 @@ cd ~/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=1024,STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="15:00:00",RUN_STARTDATE="2000-03-01",REST_N=1,REST_OPTION=nmonths
+./xmlchange NTASKS=1024,STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="15:00:00",RUN_STARTDATE="2000-01-01",REST_N=1,REST_OPTION=nmonths
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
@@ -178,7 +179,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=2000_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=2000_1_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
@@ -186,8 +187,8 @@ cd ~/e3sm_top/cime/scripts
 
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=1024,STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="15:00:00",RUN_STARTDATE="2000-03-01",REST_N=1,REST_OPTION=nmonths
-
+./xmlchange NTASKS=1024,STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="15:00:00",RUN_STARTDATE="2000-01-01",REST_N=1,REST_OPTION=nmonths
+./xmlchange CONTINUE_RUN="TRUE"
 cat >> user_nl_clm << EOF
 
 rad_3d_topo = .true.
@@ -204,7 +205,7 @@ EOF
 ./case.setup
 
 ./case.build
-
+./xmlchange CONTINUE_RUN="TRUE"
 ./case.submit
 
 echo success
@@ -212,4 +213,25 @@ echo success
 
 #test
 
+
+
+
+
+export RES=r05_r05
+export COMPSET=ICRUCLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=TEST7_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+
+./create_newcase -compset ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+./case.setup
+
+./case.build
+
+./case.submit
 
