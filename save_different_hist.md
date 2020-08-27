@@ -146,7 +146,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=1year_Halfhour_daily_notop.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=2000_Halfhour_daily_notop.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
@@ -159,6 +159,7 @@ cd ${CASE_NAME}
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
 f3dtopo = ''
+fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2010_c191025.nc'
 hist_empty_htapes = .true.
 hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
 hist_fincl2 = 'FSH','EFLX_LH_TOT','TSOI_10CM','TG','TV','TSA','QSNOMELT','QRUNOFF','QOVER','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
@@ -177,7 +178,7 @@ export RES=r0125_r0125
 export COMPSET=ICLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=1year_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=2000_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 
@@ -188,7 +189,9 @@ cd ${CASE_NAME}
 ./xmlchange NTASKS=1024,STOP_N=3,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="15:00:00",RUN_STARTDATE="2000-03-01",REST_N=1,REST_OPTION=nmonths
 
 cat >> user_nl_clm << EOF
+
 rad_3d_topo = .true.
+fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2010_c191025.nc'
 f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.125x0.125.nc'
 hist_empty_htapes = .true.
 hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
