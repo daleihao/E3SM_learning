@@ -1,4 +1,8 @@
-# half Hourly 1 degree
+
+
+
+
+half Hourly 1 degree
 ## notpo
 export RES=f09_f09
 export COMPSET=ICLM45
@@ -210,6 +214,69 @@ echo success
 
 
 # Compy
+
+
+# Compy
+# half Hourly 2 degree
+## notpo
+export RES=f19_f19
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=Halfhour4_notop.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="3:00:00",RUN_STARTDATE="2000-01-01"
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .false.
+f3dtopo = ''
+hist_nhtfrq = 1
+hist_mfilt  = 48
+hist_empty_htapes = .true.
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TG','TV','TSA','QSNOMELT','QRUNOFF','QOVER','FSDSVD','FSDSVI','FSRVD','FSRVI','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
+EOF
+
+./case.setup
+
+./case.build
+
+./case.submit
+
+## top
+export RES=f19_f19
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=Halfhour4_top.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="3:00:00",RUN_STARTDATE="2000-01-01"
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .true.
+f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_1.9x2.5_c150322.nc'
+hist_empty_htapes = .true.
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','fd_3d_adjust','fi_3d_adjust','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSH','EFLX_LH_TOT','TSOI_10CM','TG','TV','TSA','QSNOMELT','QRUNOFF','QOVER','FSDSVD','FSDSVI','FSRVD','FSRVI','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
+hist_nhtfrq = 1
+hist_mfilt  = 48
+EOF
+./case.setup
+
+./case.build
+
+./case.submit
+
 # half Hourly 1 degree
 ## notpo
 export RES=f09_f09
