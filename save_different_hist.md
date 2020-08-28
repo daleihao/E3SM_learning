@@ -16,7 +16,9 @@ cd ${CASE_NAME}
 ./xmlchange NTASKS=128,STOP_N=10,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="12:00:00",RUN_STARTDATE="2000-01-01",REST_N=1,REST_OPTION=nyears
 ./xmlchange DATM_MODE="CLMGSWP3v1",DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
 ./xmlchange DATM_MODE="CLMCRUNCEPv7",DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
+./xmlchange DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
 
+./xmlchange RUN_STARTDATE="2000-01-01"
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
 f3dtopo = ''
@@ -217,21 +219,53 @@ echo success
 
 
 
-export RES=r05_r05
+## check r05
+
+export RES=r0125_r0125
 export COMPSET=ICRUCLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=TEST7_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=TEST8_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm_top/cime/scripts
+cd ~/e3sm/cime/scripts
 
 ./create_newcase -compset ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 
 cd ${CASE_NAME}
 
+./xmlchange RUN_STARTDATE="2000-01-01"
+./xmlchange DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
+
+cat >> user_nl_clm << EOF
+fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2010_c191025.nc'
+EOF
 ./case.setup
 
 ./case.build
 
 ./case.submit
 
+
+## check r05
+
+export RES=r05_r05
+export COMPSET=ICRUCLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=TEST8_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm/cime/scripts
+
+./create_newcase -compset ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+
+cd ${CASE_NAME}
+
+
+./xmlchange RUN_STARTDATE="2000-01-01"
+./xmlchange DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
+
+./case.setup
+
+./case.build
+
+./case.submit
