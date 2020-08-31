@@ -269,3 +269,11 @@ cd ${CASE_NAME}
 ./case.build
 
 ./case.submit
+
+
+cat >> user_nl_datm << EOF
+ mapalgo = "nn", "nn", "nn", "nn", "nn"
+EOF
+
+./case.submit
+
