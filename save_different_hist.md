@@ -252,7 +252,7 @@ export RES=r05_r05
 export COMPSET=ICRUCLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=TEST8_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=TEST9_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm/cime/scripts
 
@@ -264,16 +264,14 @@ cd ${CASE_NAME}
 ./xmlchange RUN_STARTDATE="2000-01-01"
 ./xmlchange DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
 
+cat >> user_nl_datm << EOF
+ mapalgo = "nn", "nn", "nn", "nn", "nn"
+EOF
+
 ./case.setup
 
 ./case.build
 
 ./case.submit
 
-
-cat >> user_nl_datm << EOF
- mapalgo = "nn", "nn", "nn", "nn", "nn"
-EOF
-
-./case.submit
 
