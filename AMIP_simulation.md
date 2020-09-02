@@ -7,9 +7,10 @@ export CASE_NAME=test_AMIP.${RES}.${COMPSET}.${COMPILER}
 cd ~/e3sm_top/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 cd ${CASE_NAME}
-./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="4:00:00",RUN_STARTDATE="1985-01-01",REST_N=1,REST_OPTION=nmonths
-./xmlchange RUN_STARTDATE="2000-01-01"
 
+./xmlchange NTASKS=128,STOP_N=5,STOP_OPTION=ndays,JOB_WALLCLOCK_TIME="4:00:00",RUN_STARTDATE="1985-01-01",REST_N=5,REST_OPTION=ndays
+./xmlchange CAM_TARGET=theta-l
+./xmlchange --id CAM_CONFIG_OPTS --append --val='-cosp'
 
 
 
