@@ -1,8 +1,22 @@
+ export code_root_dir=e3sm_AMIP
+ mkdir -p $code_root_dir
+  git clone git@github.com:e3sm-project/e3sm  $code_root_dir    # This will put repository, with all code, in directory $tag_name
+  ## Setup git hooks
+  rm -rf $code_root_dir/.git/hooks
+  git clone git@github.com:e3sm-project/e3sm-Hooks.git $code_root_dir/.git/hooks         # checkout with write permission.
+#  git clone git://github.com/ACME-Climate/ACME-Hooks.git .git/hooks      # checkout read-only.
+  cd $code_root_dir
+  git config commit.template $code_root_dir/.git/hooks/commit.template
+  ## Bring in MPAS ocean/ice repo
+  git submodule update --init
+git checkout --detach
+
+
 export RES=ne30pg2_r05_oECv3
 export COMPSET=F20TRC5-CMIP6
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=test_AMIP.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=test2_AMIP.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
@@ -22,7 +36,7 @@ cat >> user_nl_cam << EOF
  fincl1 = 'extinct_sw_inp','extinct_lw_bnd7','extinct_lw_inp','CLD_CAL', 'TREFMNAV', 'TREFMXAV'
  ncdata = '/compyfs/gola749/E3SM_simulations/20180316.DECKv1b_A1.ne30_oEC.edison/archive/rest/1980-01-01-00000/20180316.DECKv1b_A1.ne30_oEC.edison.cam.i.1980-01-01-00000.nc'
  ieflx_opt = 0 ! =0 AMIP simulations, = 2 for coupled
- clubb_c_K10 = 0.30
+ clubb_c_K10h = 0.30
  clubb_c14 = 1.06D0
  dust_emis_fact	=  1.50D0
  linoz_psc_T = 197.5
