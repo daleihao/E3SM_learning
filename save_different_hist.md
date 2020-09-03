@@ -252,9 +252,9 @@ export RES=r05_r05
 export COMPSET=ICRUCLM45
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=TEST9_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=TEST10_Halfhour_daily_top.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm/cime/scripts
+cd ~/e3sm_AMIP/cime/scripts
 
 ./create_newcase -compset ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 
