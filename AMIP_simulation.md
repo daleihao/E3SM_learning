@@ -12,31 +12,34 @@
 git checkout --detach
 
 
+
+## notop
+
 export RES=ne30pg2_r05_oECv3
 export COMPSET=F20TRC5-CMIP6
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=test3_AMIP.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=notop_AMIP.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=128,STOP_N=5,STOP_OPTION=ndays,JOB_WALLCLOCK_TIME="4:00:00",RUN_STARTDATE="1985-01-01",REST_N=5,REST_OPTION=ndays
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="8:00:00",RUN_STARTDATE="1985-01-01",REST_N=1,REST_OPTION=nmonths
 ./xmlchange CAM_TARGET=theta-l
 ./xmlchange --id CAM_CONFIG_OPTS --append --val='-cosp'
 
 
 
 cat >> user_nl_cam << EOF
- nhtfrq =   0
+ nhtfrq =   -24
  mfilt  = 1
  avgflag_pertape = 'A'
- fexcl1 = 'CFAD_SR532_CAL'
- fincl1 = 'extinct_sw_inp','extinct_lw_bnd7','extinct_lw_inp','CLD_CAL', 'TREFMNAV', 'TREFMXAV'
+ hist_empty_htapes = .true.
+ fincl1 = 'FLDS','FLNS','FLNSC','FSDS', 'FSNS', 'FSNSC','CLOUDFRAC_CLUBB','SNOWHLND','PRECC','PRECL','PRECSC','PRECSL'
  ncdata = '/compyfs/gola749/E3SM_simulations/20180316.DECKv1b_A1.ne30_oEC.edison/archive/rest/1980-01-01-00000/20180316.DECKv1b_A1.ne30_oEC.edison.cam.i.1980-01-01-00000.nc'
  ieflx_opt = 0 ! =0 AMIP simulations (ocean is prescribed), = 2 for coupled coupled included ocean
- clubb_c_K10h = 0.30
+ clubb_c_K10 = 0.30
  clubb_c14 = 1.06D0
  dust_emis_fact	=  1.50D0
  linoz_psc_T = 197.5
@@ -50,14 +53,91 @@ cat >> user_nl_clm << EOF
  rad_3d_topo = .false.
  f3dtopo = ''
  hist_empty_htapes = .true.
- hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
- hist_nhtfrq = 0
+ hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TG','TSA','QSNOMELT','QRUNOFF','QOVER','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
+ hist_nhtfrq = -24
  hist_mfilt  = 1
 EOF
 
 ./case.setup
 ./case.build
 ./case.submit
+
+
+
+
+
+## top
+
+export RES=ne30pg2_r05_oECv3
+export COMPSET=F20TRC5-CMIP6
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=top_AMIP.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+cd ${CASE_NAME}
+
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nmonths,JOB_WALLCLOCK_TIME="8:00:00",RUN_STARTDATE="1985-01-01",REST_N=1,REST_OPTION=nmonths
+./xmlchange CAM_TARGET=theta-l
+./xmlchange --id CAM_CONFIG_OPTS --append --val='-cosp'
+
+
+
+cat >> user_nl_cam << EOF
+ nhtfrq =   -24
+ mfilt  = 1
+ avgflag_pertape = 'A'
+ hist_empty_htapes = .true.
+ fincl1 = 'FLDS','FLNS','FLNSC','FSDS', 'FSNS', 'FSNSC','CLOUDFRAC_CLUBB','SNOWHLND','PRECC','PRECL','PRECSC','PRECSL'
+ ncdata = '/compyfs/gola749/E3SM_simulations/20180316.DECKv1b_A1.ne30_oEC.edison/archive/rest/1980-01-01-00000/20180316.DECKv1b_A1.ne30_oEC.edison.cam.i.1980-01-01-00000.nc'
+ ieflx_opt = 0 ! =0 AMIP simulations (ocean is prescribed), = 2 for coupled coupled included ocean
+ clubb_c_K10 = 0.30
+ clubb_c14 = 1.06D0
+ dust_emis_fact	=  1.50D0
+ linoz_psc_T = 197.5
+EOF
+
+cat >> user_nl_clm << EOF
+ check_finidat_year_consistency = .false.
+ fsurdat = "/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.5x0.5_simyr1850_c190418.nc"
+ flanduse_timeseries = "/compyfs/inputdata/lnd/clm2/surfdata_map/landuse.timeseries_0.5x0.5_hist_simyr1850-2015_c191004.nc"
+ finidat = '/compyfs/gola749/E3SM_simulations/20200620.v1like.amip.ne30pg2_r05_oECv3.compy/init/finidat_interp_20180316.DECKv1b_A1.ne30_oEC.edison.clm2.r.1980-01-01-00000_DECKv1.nc'
+ rad_3d_topo = .true.
+ f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.5x0.5.nc'
+ hist_empty_htapes = .true.
+ hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI','FSH','EFLX_LH_TOT','TSOI_10CM','TV','TG','TSA','QSNOMELT','QRUNOFF','QOVER','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
+ hist_nhtfrq = -24
+ hist_mfilt  = 1
+EOF
+
+./case.setup
+./case.build
+./case.submit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################
+
+
+
+
+
+
+
+
 
 ##
 #!/bin/bash
@@ -118,9 +198,9 @@ export RES=ne30pg2_r05_oECv3
 export COMPSET=F20TRC5-CMIP6
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=test4_AMIP.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=test7_AMIP.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm_AMIP/cime/scripts
+cd ~/e3sm_top_AMIP/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 cd ${CASE_NAME}
 
