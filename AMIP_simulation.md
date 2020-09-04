@@ -198,7 +198,7 @@ export RES=ne30pg2_r05_oECv3
 export COMPSET=F20TRC5-CMIP6
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=test7_AMIP.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=test10_AMIP.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top_AMIP/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
@@ -211,7 +211,7 @@ cd ${CASE_NAME}
 
 
 cat >> user_nl_cam << EOF
- nhtfrq =   0
+ nhtfrq =   -24
  mfilt  = 1
  avgflag_pertape = 'A'
  fexcl1 = 'CFAD_SR532_CAL'
@@ -231,7 +231,7 @@ cat >> user_nl_clm << EOF
  finidat = '/compyfs/gola749/E3SM_simulations/20200620.v1like.amip.ne30pg2_r05_oECv3.compy/init/finidat_interp_20180316.DECKv1b_A1.ne30_oEC.edison.clm2.r.1980-01-01-00000_DECKv1.nc'
  hist_empty_htapes = .true.
  hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
- hist_nhtfrq = 0
+ hist_nhtfrq = -24
  hist_mfilt  = 1
 EOF
 
