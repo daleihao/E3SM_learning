@@ -198,9 +198,9 @@ export RES=ne30pg2_r05_oECv3
 export COMPSET=F20TRC5-CMIP6
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=test10_AMIP.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=test14_AMIP.${RES}.${COMPSET}.${COMPILER}
 
-cd ~/e3sm_top_AMIP/cime/scripts
+cd ~/e3sm_top_AMIP_true/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 cd ${CASE_NAME}
 
@@ -229,6 +229,8 @@ cat >> user_nl_clm << EOF
  fsurdat = "/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.5x0.5_simyr1850_c190418.nc"
  flanduse_timeseries = "/compyfs/inputdata/lnd/clm2/surfdata_map/landuse.timeseries_0.5x0.5_hist_simyr1850-2015_c191004.nc"
  finidat = '/compyfs/gola749/E3SM_simulations/20200620.v1like.amip.ne30pg2_r05_oECv3.compy/init/finidat_interp_20180316.DECKv1b_A1.ne30_oEC.edison.clm2.r.1980-01-01-00000_DECKv1.nc'
+  rad_3d_topo = .true.
+ f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.5x0.5.nc'
  hist_empty_htapes = .true.
  hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
  hist_nhtfrq = -24
