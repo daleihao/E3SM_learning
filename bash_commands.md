@@ -1,5 +1,6 @@
 # remove files
     rm -r dir
+    rm -rf dir
     rm filename
 # change the permission of one file   
      chmod 644 user_datm.streams.txt
@@ -9,3 +10,8 @@
     ncdump -c # header and coordinate system
     ncdump -v lat,time # look at a subset of the data
     ncdump -t -v time # seetimes in human-readable form
+# cp
+    cp -f source dest  # copy file no prompt
+    cp -r source dest  # copy all filres
+# link files
+    ln -s 
