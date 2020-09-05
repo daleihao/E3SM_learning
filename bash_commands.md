@@ -3,3 +3,9 @@
     rm filename
 # change the permission of one file   
      chmod 644 user_datm.streams.txt
+# ncdump 
+    refer to https://www.unidata.ucar.edu/software/netcdf/workshops/2011/utilities/Ncdump.html
+    ncdump -h # header
+    ncdump -c # header and coordinate system
+    ncdump -v lat,time # look at a subset of the data
+    ncdump -t -v time # seetimes in human-readable form
