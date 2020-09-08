@@ -15,3 +15,6 @@
     cp -r source dest  # copy all filres
 # link files
     ln -s 
+# sbalance check
+    module load sbank
+    sbank balance statement -A
