@@ -19,16 +19,16 @@ export RES=ne30pg2_r05_oECv3
 export COMPSET=F20TRC5-CMIP6
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=notop_AMIP_1year.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=notop_AMIP_5years.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top_AMIP/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="20:00:00",RUN_STARTDATE="1985-01-01",REST_N=3,REST_OPTION=nmonths
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="20:00:00",RUN_STARTDATE="1985-01-01",REST_N=1,REST_OPTION=nyears
 ./xmlchange CAM_TARGET=theta-l
 ./xmlchange --id CAM_CONFIG_OPTS --append --val='-cosp'
-
+./xmlchange --id RESUBMIT --val 4
 
 
 cat >> user_nl_cam << EOF
@@ -72,16 +72,16 @@ export RES=ne30pg2_r05_oECv3
 export COMPSET=F20TRC5-CMIP6
 export COMPILER=intel
 export MACH=compy
-export CASE_NAME=top_AMIP_1year.${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=top_AMIP_5years.${RES}.${COMPSET}.${COMPILER}
 
 cd ~/e3sm_top_AMIP/cime/scripts
 ./create_newcase -compset  ${COMPSET} -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
 cd ${CASE_NAME}
 
-./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="20:00:00",RUN_STARTDATE="1985-01-01",REST_N=3,REST_OPTION=nmonths
+./xmlchange NTASKS=128,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="20:00:00",RUN_STARTDATE="1985-01-01",REST_N=1,REST_OPTION=nyears
 ./xmlchange CAM_TARGET=theta-l
 ./xmlchange --id CAM_CONFIG_OPTS --append --val='-cosp'
-
+./xmlchange --id RESUBMIT --val 4
 
 
 cat >> user_nl_cam << EOF
@@ -110,6 +110,7 @@ cat >> user_nl_clm << EOF
  hist_nhtfrq = 0
  hist_mfilt  = 1
 EOF
+
 
 ./case.setup
 ./case.build
