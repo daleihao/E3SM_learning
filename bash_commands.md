@@ -17,4 +17,4 @@
     ln -s 
 # sbalance check
     module load sbank
-    sbank balance statement -A
+    sbank balance statement -A/-U
