@@ -43,7 +43,7 @@ export RES=CLM_USRDAT
 export COMPSET=ICLM45 
 export COMPILER=intel 
 export MACH=compy 
-export CASE_NAME=TEST3_${RES}.${COMPSET}.${COMPILER}
+export CASE_NAME=SinglePoint_${RES}.${COMPSET}.${COMPILER}
 cd ~/e3sm/cime/scripts 
 ./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD 
 
