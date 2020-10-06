@@ -107,7 +107,7 @@ cd ${CASE_NAME}
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
-f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.9x1.25_c150322.nc'
+f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_1.9x2.5_c150322.nc'
 hist_empty_htapes = .true.
 hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
 hist_fincl2 = 'FSA','FSDS','FSR','FIRA','FIRE','FLDS','FGR','FSH','EFLX_LH_TOT','TSOI_10CM','TG','TV','TSA','QSNOMELT','QRUNOFF','QOVER','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
