@@ -125,6 +125,76 @@ echo success
 
 
 
+%%%%%%%%%%%%%% 0.125
+# Compy  r0125_r0125
+# half Hourly 1 degree
+## notpo
+export RES=r0125_r0125
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=10year_CLMGSWP3v1_notop.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+cd ${CASE_NAME}
+
+./xmlchange NTASKS=1024,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="20:00:00",RUN_STARTDATE="2000-01-01",REST_N=1,REST_OPTION=nyears,RESUBMIT=10
+./xmlchange DATM_MODE="CLMGSWP3v1",DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .false.
+f3dtopo = ''
+hist_empty_htapes = .true.
+fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2010_c191025.nc'
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
+hist_fincl2 = 'FSA','FSDS','FSR','FIRA','FIRE','FLDS','FGR','FSH','EFLX_LH_TOT','TSOI_10CM','TG','TV','TSA','QSNOMELT','QRUNOFF','QOVER','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
+hist_nhtfrq = 1, -24
+hist_mfilt  = 48, 1
+EOF
+
+./case.setup
+./case.build
+./case.submit
+echo success
+
+
+
+
+# Compy  r0125_r0125
+# half Hourly 1 degree
+## notpo
+export RES=r0125_r0125
+export COMPSET=ICLM45
+export COMPILER=intel
+export MACH=compy
+export CASE_NAME=10year_CLMGSWP3v1_top.${RES}.${COMPSET}.${COMPILER}
+
+cd ~/e3sm_top/cime/scripts
+./create_newcase -compset ICLM45 -res ${RES} -case ${CASE_NAME} -compiler ${COMPILER} -mach ${MACH} -project ESMD
+cd ${CASE_NAME}
+
+./xmlchange NTASKS=1024,STOP_N=1,STOP_OPTION=nyears,JOB_WALLCLOCK_TIME="20:00:00",RUN_STARTDATE="2000-01-01",REST_N=1,REST_OPTION=nyears,RESUBMIT=10
+./xmlchange DATM_MODE="CLMGSWP3v1",DATM_CLMNCEP_YR_START='2000',DATM_CLMNCEP_YR_END='2010'
+
+cat >> user_nl_clm << EOF
+rad_3d_topo = .true.
+fsurdat = '/compyfs/inputdata/lnd/clm2/surfdata_map/surfdata_0.125x0.125_simyr2010_c191025.nc'
+f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.125x0.125.nc'
+hist_empty_htapes = .true.
+hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI'
+hist_fincl2 = 'FSA','FSDS','FSR','FIRA','FIRE','FLDS','FGR','FSH','EFLX_LH_TOT','TSOI_10CM','TG','TV','TSA','QSNOMELT','QRUNOFF','QOVER','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
+hist_nhtfrq = 1, -24
+hist_mfilt  = 48, 1
+EOF
+
+./case.setup
+./case.build
+./case.submit
+echo success
+
+
+
 ###############################
 
 # Compy
