@@ -20,3 +20,5 @@
     sbank balance statement -A/-U
 # rename
     for file in r0125*.mat; do mv $file ${file//r0125/r025}; done
+# unzip
+    unzip *.zip
