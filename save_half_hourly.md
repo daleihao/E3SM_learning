@@ -1,7 +1,5 @@
 
 
-
-
 half Hourly 1 degree
 ## notpo
 export RES=f09_f09
