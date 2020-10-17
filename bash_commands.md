@@ -22,3 +22,12 @@
     for file in r0125*.mat; do mv $file ${file//r0125/r025}; done
 # unzip
     unzip *.zip
+# chmod
+    chmod a+rwx (read, wrie, execute) (u, user; g, group; o, others; a, all)
+# cat
+## append
+    cat > filename <<EOF
+    EOF
+## output to a file
+    car >> filename <<EOF
+    EOF
