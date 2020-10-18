@@ -31,3 +31,5 @@
 ## output to a file
     car >> filename <<EOF
     EOF
+# basic operations
+    export, whereis, which, clear, ls -l, toucch, cat, head, more, tail, mv, cp, rm, diff, chmod, gzip, gunzip, grep. nl, pwd, ssh, 
