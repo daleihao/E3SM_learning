@@ -24,3 +24,8 @@ resubmit the run with CONTINUE_RUN=.FALSE., but change REST_N and REST_OPTIONsuc
 
 
 ./xmlchange REST_N=1,REST_OPTION=nmonths,CONTINUE_RUN=FALSE,STOP_N=3,STOP_OPTION=nmonths,RESUBMIT=3
+
+
+
+https://www.cesm.ucar.edu/models/ccsm4.0/data8/c193.html#str_fillalgo
+https://www.cesm.ucar.edu/models/cesm1.0/clm/models/lnd/clm/doc/UsersGuide/x7895.html
