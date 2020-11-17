@@ -18,7 +18,7 @@ cd ${CASE_NAME}
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .false.
-f3dtopo = ''
+f3dtopo = '/compyfs/haod776/e3sm_scratch/10years_CLMGSWP3v1_notop.f09_f09.ICLM45.intel/run/10years_CLMGSWP3v1_notop.f09_f09.ICLM45.intel.clm2.r.2011-01-01-00000.nc'
 hist_empty_htapes = .true.
 hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI','FIRE'
 hist_fincl2 = 'FSA','FSDS','FSR','FIRA','FIRE','FLDS','FGR','FSH','EFLX_LH_TOT','TSOI_10CM','TG','TV','TSA','QSNOMELT','QRUNOFF','QOVER','PSNSUN','PSNSHA','FPSN','FSNO','SNOWDP','H2OSNO'
