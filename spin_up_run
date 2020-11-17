@@ -46,7 +46,7 @@ cd ${CASE_NAME}
 
 cat >> user_nl_clm << EOF
 rad_3d_topo = .true.
-finidata = ''
+finidata = '/compyfs/haod776/e3sm_scratch/10years_CLMGSWP3v1_top.f09_f09.ICLM45.intel/run/10years_CLMGSWP3v1_top.f09_f09.ICLM45.intel.clm2.r.2011-01-01-00000.nc'
 f3dtopo = '/qfs/people/haod776/UCLA_3D_Topo_Data/topo_3d_0.9x1.25_c150322.nc'
 hist_empty_htapes = .true.
 hist_fincl1 = 'COSZEN', 'ALBD', 'ALBI','FSA','FSR','FSDSND','FSDSNI','FSRND','FSRNI','FSDSVD','FSDSVI','FSRVD','FSRVI','FIRE'
