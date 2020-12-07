@@ -32,7 +32,7 @@ cd ${CASE_NAME}
 rad_3d_topo = .false.
 f3dtopo = ''
 hist_empty_htapes = .true.
-hist_fincl1 = 'zeta_patch', 'ustar_patch','LH_pft', 'SH_pft','TBOT','QBOT','RHO','EFLX_LH_TOT','Qh'
+hist_fincl1 = 'zeta_patch', 'ustar_patch','LH_pft', 'SH_pft','TBOT','QBOT','RHO','EFLX_LH_TOT','Qh','FV'
 hist_fincl2 = 'FSH','EFLX_LH_TOT','Qh'
 hist_nhtfrq = 1, -24
 hist_mfilt  = 144, 3
