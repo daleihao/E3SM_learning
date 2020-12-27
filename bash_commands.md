@@ -33,3 +33,19 @@
     EOF
 # basic operations
     export, whereis, which, clear, ls -l, toucch, cat, head, more, tail, mv, cp, rm, diff, chmod, gzip, gunzip, grep. nl, pwd, ssh, 
+    
+# download files
+    #!/bin/bash
+    #These lines are for Slurm
+    #SBATCH -N 1
+    #SBATCH -J MODIS_albedo
+    #SBATCH -t  10000
+    #SBATCH -A sif
+    #SBATCH -o /pic/projects/sif/dalei/MODIS_Albedo/MODIS_albedo.out
+
+    ##### These are shell commands
+    cd /pic/projects/sif/dalei/MODIS_Albedo/
+    wget -e robots=off -m -np -R .html,.tmp -nH --cut-dirs=3 "https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/501280930/" --header "Authorization: Bearer 83EB74A6-4474-  11E8-A6D4-10FA569DBFBA" -P  /pic/projects/sif/dalei/MODIS_Albedo/
+    #wget --http-user=haodl@radi.ac.cn --http-passwd=Hdl271818 -i download.txt
+
+    echo finished!
