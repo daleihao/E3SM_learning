@@ -49,3 +49,19 @@
     #wget --http-user=haodl@radi.ac.cn --http-passwd=Hdl271818 -i download.txt
 
     echo finished!
+    
+  # check the quota
+  
+    As a user, you can see you usage and quota with a command like this.
+
+    [tim@compy01 ~]$ lfs quota -hu tim /compyfs Disk quotas for usr tim (uid 20679):
+        Filesystem    used   quota   limit   grace   files   quota   limit   grace
+        /compyfs  5.477G      0k     30T       -       8       0       0       -
+
+        Here you can see that I am using 5.5G out of my 30T quota.  While on the topic, remember that your home directory has a quota of 400GB which can be seen with a "df -h . " in your home directory
+
+    [tim@compy01 ~]$ df -h .
+    Filesystem      Size  Used Avail Use% Mounted on
+    qfsi:/people    401G  214G  187G  54% /qfs/people
+
+
