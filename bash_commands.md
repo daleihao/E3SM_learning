@@ -22,6 +22,7 @@
     for file in r0125*.mat; do mv $file ${file//r0125/r025}; done
 # unzip
     unzip *.zip tar -xvf *.tar.gz
+    gzip -d file.gz
 # chmod
     chmod a+rwx (read, wrie, execute) (u, user; g, group; o, others; a, all)
 # cat
