@@ -1,0 +1,13 @@
+git reset --soft HEAD~1
+
+git reset --hard HEAD~1
+
+git commit -m "meassage"
+
+git stash
+
+git branch branch_name
+
+git add 
+git commit
+git push origin hdl
