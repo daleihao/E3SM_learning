@@ -67,5 +67,5 @@
 
 # squeue show full name
 http://manpages.ubuntu.com/manpages/xenial/man1/squeue.1.html
-squeue -u daleihao -o "%30j, %30F"
+ squeue -u daleihao -o "%30j, %30F, %L, %l, %T"
 
