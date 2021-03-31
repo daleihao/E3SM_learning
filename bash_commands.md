@@ -65,4 +65,7 @@
     Filesystem      Size  Used Avail Use% Mounted on
     qfsi:/people    401G  214G  187G  54% /qfs/people
 
+# squeue show full name
+http://manpages.ubuntu.com/manpages/xenial/man1/squeue.1.html
+squeue -u daleihao -o "%30j, %30F"
 
