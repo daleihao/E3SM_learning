@@ -23,6 +23,11 @@
 # unzip
     unzip *.zip tar -xvf *.tar.gz
     gzip -d file.gz
+    for year in {2000..2010}
+    do
+	    cd /global/cscratch1/sd/daleihao/e3sm_scratch/cori-knl/GlobSnow/www.globsnow.info/se/archive_v2.0/$year/MFSC/
+	    gzip -dk *.gz
+    done
 # chmod
     chmod a+rwx (read, wrie, execute) (u, user; g, group; o, others; a, all)
 # cat
