@@ -70,3 +70,9 @@ EOF
 ./case.setup
 ./case.build
 ./case.submit
+
+
+# open/close the mosart
+If .true., turn on rtm river routing
+
+Default: .true.
