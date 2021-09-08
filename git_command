@@ -11,3 +11,9 @@ git branch branch_name
 git add 
 git commit
 git push origin hdl
+
+git merge https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+
+git rebase 
+
+git cherry-pick  https://www.atlassian.com/git/tutorials/cherry-pick
