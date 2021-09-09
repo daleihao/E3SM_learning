@@ -17,3 +17,9 @@ git merge https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 git rebase 
 
 git cherry-pick  https://www.atlassian.com/git/tutorials/cherry-pick
+
+change from https to ssh: https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to
+
+  https://statistics.berkeley.edu/computing/faqs/git-auth
+    git config remote.origin.url git@github.com:ACCOUNT/REPO.git
+    git remote set-url origin git@github.com:ACCOUNT/REPO.git
