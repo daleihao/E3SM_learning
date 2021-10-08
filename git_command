@@ -25,3 +25,26 @@ change from https to ssh: https://stackoverflow.com/questions/68775869/support-f
     git remote set-url origin git@github.com:ACCOUNT/REPO.git
     
     git restore filenae
+
+
+pull another branches 
+# First add 'E3SM' main repo as a new remote (e3sm)
+git remote add e3sm git@github.com:E3SM-Project/E3SM
+
+# Here is the explanation of what the above 
+# Think of 'origin' and 'e3sm' as pointer. In your case,
+# origin was pointing to your repo: git@github.com:daleihao/e3sm
+# e3sm now points to git@github.com:E3SM-Project/E3SM
+
+# Now get new stuff from e3sm repo
+git fetch e3sm
+
+# Now checkout my branch from e3sm repo
+git checkout  bishtgautam/lnd/solar_rad_top
+
+# Now update the submodules
+git submodule update --init
+
+# Now run the test
+cd cime/scripts
+./create_test SMS_Lm1.f09_f09.IELM.cori-knl_intel.elm-solar_rad
