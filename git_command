@@ -48,3 +48,12 @@ git submodule update --init
 # Now run the test
 cd cime/scripts
 ./create_test SMS_Lm1.f09_f09.IELM.cori-knl_intel.elm-solar_rad
+
+
+
+In running the test suite you do the following:
+First, one creates “baselines” for the test suite. The baselines are some netcdf output files. You create the baseline using the hash on master from which you started your development.
+Then, one switches to the last hash of their development branch. Runs the test suite and this time compares against the previously generated baseline.
+If you didn’t fix a bug, the answers between the two should be bit-for-bit (BFB).
+10:42
+Here are my notes describing the procedure: https://gist.github.com/bishtgautam/31a73b933e2492698bccfc7b55acf01e
