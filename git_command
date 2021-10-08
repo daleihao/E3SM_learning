@@ -57,3 +57,9 @@ Then, one switches to the last hash of their development branch. Runs the test s
 If you didn’t fix a bug, the answers between the two should be bit-for-bit (BFB).
 10:42
 Here are my notes describing the procedure: https://gist.github.com/bishtgautam/31a73b933e2492698bccfc7b55acf01e
+
+git checkout daleihao/lnd/solar_rad_top
+# rebase your branch on top of my branch. this way you will get the new commit i made
+git rebase  bishtgautam/lnd/solar_rad_top
+
+git push origin daleihao/lnd/solar_rad_top
