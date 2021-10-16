@@ -70,3 +70,8 @@ git checkout bishtgautam/lnd/solar_rad_top_rebased
 git reset --hard e3sm/bishtgautam/lnd/solar_rad_top_rebased
 git chechkout daleihao/lnd/solar_rad_top_rebased
 git reset --hard bishtgautam/lnd/solar_rad_top_rebased
+
+
+git checkout daleihao/lnd/solar_rad_top
+git reset --hard bishtgautam/lnd/solar_rad_top_rebased
+git push origin +daleihao/lnd/solar_rad_top
