@@ -32,6 +32,8 @@ pull another branches
 git remote add e3sm git@github.com:E3SM-Project/E3SM
 
 # Here is the explanation of what the above 
+
+
 # Think of 'origin' and 'e3sm' as pointer. In your case,
 # origin was pointing to your repo: git@github.com:daleihao/e3sm
 # e3sm now points to git@github.com:E3SM-Project/E3SM
@@ -75,3 +77,7 @@ git reset --hard bishtgautam/lnd/solar_rad_top_rebased
 git checkout daleihao/lnd/solar_rad_top
 git reset --hard bishtgautam/lnd/solar_rad_top_rebased
 git push origin +daleihao/lnd/solar_rad_top
+
+
+commit one commit from other branch
+git cherry-pick 4b85412c0238e0d86cc33d9f6cd6ec88d538a1d3
