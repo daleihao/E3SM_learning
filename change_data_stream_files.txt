@@ -245,3 +245,9 @@ Actual example:
 	  
 <<< Previous	Home	Next >>>
  	
+
+
+namelist_definition_datm
+https://github.com/E3SM-Project/E3SM/blob/master/components/data_comps/datm/cime_config/namelist_definition_datm.xml#L21
+
+namelist_definition_datm.xml
