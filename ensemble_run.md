@@ -27,3 +27,8 @@ hist_dov2xy = .false., .false.
 hist_type1d_pertape = ' ', ' '
 fsurdat = '/qfs/people/haod776/script_for_clm_sparse_grid/clm-netcdf/surfdata_ARM_SGP_c201206.nc'
 EOF
+
+
+set job_query
+set ./xmlchange MAX_MPITASKS_PER_NODE=40
+./xmlchange --force -file env_workflow.xml JOB_QUEUE=short
