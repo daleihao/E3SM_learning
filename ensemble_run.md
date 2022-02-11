@@ -32,3 +32,5 @@ EOF
 set job_query
 set ./xmlchange MAX_MPITASKS_PER_NODE=40
 ./xmlchange --force -file env_workflow.xml JOB_QUEUE=short
+./xmlchange -file env_mach_pes.xml -id NTHRDS -val 2
+./xmlchange -file env_mach_pes.xml -id CPL_NTHRDS -val 1
