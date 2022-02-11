@@ -34,3 +34,7 @@ set ./xmlchange MAX_MPITASKS_PER_NODE=40
 ./xmlchange --force -file env_workflow.xml JOB_QUEUE=short
 ./xmlchange -file env_mach_pes.xml -id NTHRDS -val 2
 ./xmlchange -file env_mach_pes.xml -id CPL_NTHRDS -val 1
+
+
+
+two different mechanism to do parallel work.  MPI uses distributed memory -- each MPI is basically its own e3sm.exe.  where openmp threads share memory.  you could run on one node of compy -- use 1 MPI.  Then run 1 MPI with 2 threads, then 4 threads, up to say 40 threads.  It should improve. But it will not scale great as only certain sections of our code has openmp pragams -- which tells the compiler to break up the work there.  But then to use more than 1 node, need somethign like MPI to communicate across network from node-to-node.  So we need MPI, but could have 1 MPI per node and then use threads within the node.  This would actually be optimum for memory use and is generally seen as best way -- it's just that our code just can't be threaded well enough for it to make sense.  So usually MPI is better for us, with some improvement using threads.
