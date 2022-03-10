@@ -1,5 +1,6 @@
 http://www.cesm.ucar.edu/models/cesm1.2/clm/models/lnd/clm/doc/UsersGuide/x12544.html
 
+https://escomp.github.io/ctsm-docs/versions/release-clm5.0/html/users_guide/running-special-cases/Spinning-up-the-biogeochemistry-BGC-spinup.html
 
 #!/bin/sh
 # Lingcheng Li, 2022-03
