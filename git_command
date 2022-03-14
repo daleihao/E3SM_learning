@@ -1,3 +1,5 @@
+
+
 git reset --soft HEAD~1
 
 git reset --hard HEAD~1
@@ -84,3 +86,7 @@ git cherry-pick 4b85412c0238e0d86cc33d9f6cd6ec88d538a1d3
 
 ## git squash
 https://levelup.gitconnected.com/how-to-squash-git-commits-9a095c1bc1fc
+
+
+## remove all local change
+git reset --hard HEAD
