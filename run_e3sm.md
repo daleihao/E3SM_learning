@@ -62,6 +62,7 @@ cd ~/e3sm/cime/scripts
 ./xmlchange ATM_DOMAIN_FILE=domain_82x1_sparse_grid_c200711.nc
 ./xmlchange LND_DOMAIN_PATH=/qfs/people/haod776/script_for_clm_sparse_grid/82x1_sparse_grid
 ./xmlchange ATM_DOMAIN_PATH=/qfs/people/haod776/script_for_clm_sparse_grid/82x1_sparse_grid
+./xmlchange --force -file env_workflow.xml JOB_QUEUE=short
 
 cat >> user_nl_clm << EOF
 fsurdat = '/qfs/people/haod776/script_for_clm_sparse_grid/82x1_sparse_grid/surfdata_82x1_sparse_grid_c200711.nc'
