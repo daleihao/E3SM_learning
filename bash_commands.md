@@ -22,7 +22,13 @@
     for file in r0125*.mat; do mv $file ${file//r0125/r025}; done
 # unzip
     unzip *.zip tar -xvf *.tar.gz
-    
+
+for year in {1950..1969}
+ do
+tar -cvzf *.$year.tar hourly_file
+ done
+
+
     tar -xvf 
     gzip -d file.gz
     for year in {2000..2010}
