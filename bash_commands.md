@@ -76,3 +76,5 @@
 http://manpages.ubuntu.com/manpages/xenial/man1/squeue.1.html
  squeue -u daleihao -o "%30j, %30F, %L, %l, %T"
 
+# SCP
+scp -r -i ~/.ssh/nersc daleihao@dtn01.nersc.gov:/global/project/projectdirs/m3520/share/cesm_inputdata/aero_deposit_data/  ./
