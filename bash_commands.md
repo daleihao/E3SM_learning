@@ -78,3 +78,15 @@ http://manpages.ubuntu.com/manpages/xenial/man1/squeue.1.html
 
 # SCP
 scp -r -i ~/.ssh/nersc daleihao@dtn01.nersc.gov:/global/project/projectdirs/m3520/share/cesm_inputdata/aero_deposit_data/  ./
+#!/bin/zsh
+#SBATCH -N 1
+#SBATCH -t 3000
+#SBATCH -p slurm
+#SBATCH -J a
+#SBATCH -o a.out
+
+
+cd /compyfs/inputdata/atm/datm7/atm_forcing.SSP126.CESM.c220520
+chmod a-w  chmod a-w  monthly_data/*.nc
+scp -r -i ~/.ssh/nersc daleihao@dtn01.nersc.gov:/global/project/projectdirs/m3520/share/cesm_inputdata/ssp1/monthly_data  ./
+
