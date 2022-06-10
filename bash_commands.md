@@ -91,7 +91,9 @@ scp -r -i ~/.ssh/nersc daleihao@dtn01.nersc.gov:/global/project/projectdirs/m352
 #SBATCH -J a
 #SBATCH -o a.out
 
-
+https://docs.nersc.gov/connect/mfa/#installing-the-client
+./sshproxy.sh -u <nersc_username>
+Enter your password+OTP:
 cd /compyfs/inputdata/atm/datm7/atm_forcing.SSP126.CESM.c220520
 chmod a-w  chmod a-w  monthly_data/*.nc
 scp -r -i ~/.ssh/nersc daleihao@dtn01.nersc.gov:/global/project/projectdirs/m3520/share/cesm_inputdata/ssp1/monthly_data  ./
