@@ -98,3 +98,6 @@ cd /compyfs/inputdata/atm/datm7/atm_forcing.SSP126.CESM.c220520
 chmod a-w  chmod a-w  monthly_data/*.nc
 scp -r -i ~/.ssh/nersc daleihao@dtn01.nersc.gov:/global/project/projectdirs/m3520/share/cesm_inputdata/ssp1/monthly_data  ./
 
+# cancel all jobs
+squeue -u haod776 -h | awk '{print $1}' | xargs scancel
+squeue --format="%.18i" --me -h | grep -w 26699.* | xargs scancel
