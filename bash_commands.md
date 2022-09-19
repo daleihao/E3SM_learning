@@ -101,3 +101,9 @@ scp -r -i ~/.ssh/nersc daleihao@dtn01.nersc.gov:/global/project/projectdirs/m352
 # cancel all jobs
 squeue -u haod776 -h | awk '{print $1}' | xargs scancel
 squeue --format="%.18i" --me -h | grep -w 26699.* | xargs scancel
+
+# copy all files
+rsync -av --progress  /pscratch/sd/d/daleihao/e3sm_scratch/pm-cpu/*revise2 /global/cfs/cdirs/m3520/share/snow_data/CMIP6_simulations/
+
+# find files
+find ./ -type f -name '*.h0.*.nc'
