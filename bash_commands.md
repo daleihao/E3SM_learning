@@ -107,3 +107,6 @@ rsync -av --progress  /pscratch/sd/d/daleihao/e3sm_scratch/pm-cpu/*revise2 /glob
 
 # find files
 find ./ -type f -name '*.h0.*.nc'
+
+# remap nc files
+ncremap -m /compyfs/inputdata/cpl/gridmaps/ne30pg2/map_ne30pg2_to_r05_mono.200220.nc  ELM_TOP_SNOW_test.eam.h0.2000-12.nc EAM_o.nc
