@@ -110,3 +110,6 @@ find ./ -type f -name '*.h0.*.nc'
 
 # remap nc files
 ncremap -m /compyfs/inputdata/cpl/gridmaps/ne30pg2/map_ne30pg2_to_r05_mono.200220.nc  ELM_TOP_SNOW_test.eam.h0.2000-12.nc EAM_o.nc
+
+# bash template
+http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html
