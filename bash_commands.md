@@ -113,3 +113,6 @@ ncremap -m /compyfs/inputdata/cpl/gridmaps/ne30pg2/map_ne30pg2_to_r05_mono.20022
 
 # bash template
 http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html
+
+# touch: modify file date 
+find ./ -exec touch -m {} +
