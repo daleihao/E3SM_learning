@@ -1,4 +1,11 @@
 
-Not sure if you have tried. Look like your plots are created using e3sm_diags. There is an online intercomparison interface that may make the comparison of your simulations more convenient. For example,  this is a comparison view of the two PRECT plots you sent.
+.
+# There is an online intercomparison interface that may make the comparison of your simulations more convenient. 
+For example,  this is a comparison view of the two PRECT plots you sent.
 
-You can start from https://portal.nersc.gov/project/e3sm/iice/, and fill in any many e3sm_diags links (links to the top page of each e3sm_diags web view) to view them side by side. Check " vs Model" when the diags are computed as model vs model. For spatial plots during viewing, toggle between fill circle and triangle to view the total field or different field. Not all plot sets are enabled in this view. Please let me know if any question on using it. The link to the view can be copied (by clicking on the link icon on each page) and shared with others.
+You can start from https://portal.nersc.gov/project/e3sm/iice/, 
+and fill in any many e3sm_diags links (links to the top page of each e3sm_diags web view)
+to view them side by side. Check " vs Model" when the diags are computed as model vs model. 
+For spatial plots during viewing, toggle between fill circle and triangle to view the total field or different field. 
+Not all plot sets are enabled in this view. Please let me know if any question on using it.
+The link to the view can be copied (by clicking on the link icon on each page) and shared with others.
