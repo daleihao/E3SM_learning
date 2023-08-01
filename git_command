@@ -98,4 +98,16 @@ git fetch --all
 git pull --all
 
 
+f the location (URL) of the submodule has changed, then you can simply:
+
+Modify the .gitmodules file in the repo root to use the new URL.
+Delete the submodule folder in the repo rm -rf .git/modules/<submodule>.
+Delete the submodule folder in the working directory rm -rf <submodule>.
+Run git submodule sync.
+Run git submodule update.
+More complete info can be found elsewhere:
+
+Changing remote repository for a git submodule
+
+
 
