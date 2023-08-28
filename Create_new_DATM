@@ -1,0 +1,10 @@
+Create new DATM:
+
+cplhist: 
+config_component
+namelist_definition_datm.xml
+buildnml
+
+create new compsets:
+components/eam/cime_config
+config_compsets.xml for each case
