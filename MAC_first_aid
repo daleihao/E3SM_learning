@@ -1,0 +1,2 @@
+So what you will need to do to log into recovery mode is to shut down the mac all the way. Then, press and hold the power button until you see the message "Continue to hold for startup options" > Then as you continue to hold the power button it will change to "loading startup options"
+After you log into recovery mode select disk utility. In Disk utility select Macintosh HD, then click "First Aid" and follow the prompts
