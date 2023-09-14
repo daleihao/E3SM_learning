@@ -1,0 +1,25 @@
+Here are the instructions for running global line plots on Chrysalis:
+
+Script:  /home/ac.ricciuto/models/CBGC_analysis/analysis_CBGCv2.py
+
+Edit the script (lines 32-48) to change the case names, usernames (who ran the cases), short case names and run directory locations as needed.  It is currently set up to plot 2 cases but should work to plot up to 5.
+
+Then start an interactive job (you’ll need at least 30 minutes to run the script), this allows for one node for 100 minutes:
+
+srun -N 1 -t 100 --pty bash 
+
+Load e3sm_unified:
+
+source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_chrysalis.sh
+
+Then run the script:
+
+srun -n 40 --oversubscribe python analysis_CBGCv2.py --year1 1850 --year2 2013 --varfile default_vars.txt --machine chrysalis
+
+You will see some mpi errors but it runs ok despite this.  The file default_vars.txt (in the same directory; you will need to copy this too) has 60 commonly used variables.  It will take about 30 minutes to run.  You may specify your own variables by replacing “--varfile default_vars.txt” with the argument “--vars var1,var2,varn” where var1,var2… are the variables of interest.  The output will go to
+
+https://web.lcrc.anl.gov/public/e3sm/diagnostic_output/<USER>/CBGC_lineplots/<CASE1_CASE2>
+
+For example, see here:  Index of /public/e3sm/diagnostic_output/ac.ricciuto/CBGC_lineplots/20TRWCCNP_20TRWCCNPPHS/ 
+
+ 
