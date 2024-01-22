@@ -117,3 +117,7 @@ http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html
 
 # touch: modify file date 
 find ./ -exec touch -m {} +
+
+# pdf batch extract
+for file in *.pdf ; do pdftk "$file" cat 1 output "${file%.pdf}-page1.pdf" ; done
+pdftk *-page1.pdf cat output combined.pdf
