@@ -124,3 +124,6 @@ pdftk *-page1.pdf cat output combined.pdf
 
 # delete one variable in nc file
 ncks -C -O -x -v Band new_misr.nc mytest.nc
+
+# change group
+chgrp e3sm filename.nc
