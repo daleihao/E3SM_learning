@@ -121,3 +121,6 @@ find ./ -exec touch -m {} +
 # pdf batch extract
 for file in *.pdf ; do pdftk "$file" cat 1 output "${file%.pdf}-page1.pdf" ; done
 pdftk *-page1.pdf cat output combined.pdf
+
+# delete one variable in nc file
+ncks -C -O -x -v Band new_misr.nc mytest.nc
