@@ -1,0 +1,4 @@
+E3SM_unified
+Chrysalis - source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_chrysalis.sh
+Compy - source /share/apps/E3SM/conda_envs/load_latest_e3sm_unified_compy.sh
+NERSC - source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_pm-cpu.sh (edited) 
