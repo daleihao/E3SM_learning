@@ -1,2 +1,4 @@
 reference: https://acme-climate.atlassian.net/wiki/spaces/DOC/pages/754286611/Regridding+E3SM+Data+with+ncremap
+https://nco.sourceforge.net/nco.html
+
 ncremap -G ttl='Equi-Angular grid 0.01x0.01 degree, dimensions 18000x36000'#latlon=18000,36000#lat_typ=uni#lon_typ=180_wst -g ./SCRIPgrid_0.01x0.01_nomask_c240501.nc -4
