@@ -60,7 +60,7 @@ tar -cvzf *.$year.tar hourly_file
     ##### These are shell commands
     cd /pic/projects/sif/dalei/MODIS_Albedo/
     wget -e robots=off -m -np -R .html,.tmp -nH --cut-dirs=3 "https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/501280930/" --header "Authorization: Bearer 83EB74A6-4474-  11E8-A6D4-10FA569DBFBA" -P  /pic/projects/sif/dalei/MODIS_Albedo/
-    #wget --http-user=haodl@radi.ac.cn --http-passwd=Hdl271818 -i download.txt
+    #wget --http-user=*** --http-passwd=*** -i download.txt
     wget -r -nH -nc --cut-dirs=2 --no-parent --reject="index.html*" ftp://192.12.137.7/pub/dcp/archive/OBS/livneh2014.1_16deg/VIC.netCDF
 
     echo finished!
