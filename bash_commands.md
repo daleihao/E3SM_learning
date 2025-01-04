@@ -127,3 +127,6 @@ ncks -C -O -x -v Band new_misr.nc mytest.nc
 
 # change group
 chgrp e3sm filename.nc
+
+# ncea NetCDF Ensemble Averager.
+ncea [options] input1.nc input2.nc ... output.nc
